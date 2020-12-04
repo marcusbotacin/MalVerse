@@ -25,7 +25,7 @@ A Step-by-step guide:
 
 * First, clone the [angr-dev repository](https://github.com/angr/angr-dev)
 * Clone all repositories with *./setup.sh -C*
-* Checkout to the versions that we used to generate a patch. The *do_checkout.sh* script might help.
+* Checkout to the versions that we used to generate the patch. The *do_checkout.sh* script might help.
 * Install everything with *./setup.sh -i -e angr*
 * Test it with *workon angr*. There is no MalVerse code here yet, everything should be working.
 
