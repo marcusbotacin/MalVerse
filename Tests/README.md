@@ -12,6 +12,19 @@ When we trace the original binary, it detects the hook and fails. However, when 
 
 ![DebugMeNot Logic Bomb](FIGS/debugmenot2.png)
 
+## Double Ptrace
+
+In this example, the application also tries to avoid detection via the *ptrace* check. However, it also protects itself from being subverted from a patched *ptrace* call. For such, it attempts to attach *ptrace* twice. When running in a real debugger, it is expected to fail in the first check, as *ptrace* will be already attached by the debugger. If running with a traditionally patched library, it is supposed to fail in the second check, as a succesfull call in the first check should never allow the flow to reach this second path. In a real machine, the third path is reached, thus exhibiting the malicious behavior.
+
+![Double Ptrace Logic Bomb](FIGS/doubleptrace1.png)
+
+Therefore, MalVerse generates a patch that is aware of the number of invocations of the *ptrace* function, returning distinct values according to them.
+
+![Double Ptrace Logic Bomb](FIGS/doubleptrace2.png)
+
+It allows the application to always reach the third case, regardless of any actual *ptrace* invocation.
+
+![Double Ptrace Logic Bomb](FIGS/doubleptrace3.png)
 
 ## Clock
 
