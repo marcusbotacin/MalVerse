@@ -44,3 +44,19 @@ To provide a valid pointer, MalVerse generates a patch that preloads the main fu
 We notice that: (i) when we run the original application, it is not malicious; but (ii) when it is patched, it displays its malicious behavior without crashing.
 
 ![CWD Logic Bomb](FIGS/cwd4.png)
+
+## Visualizing the differences
+
+Once one identifies the impact of distinct function returns over a binary behavior, such difference can be visualized by aligning the history of invoked functions and concretizing their values according to the distinct states.
+
+We following observe an example of an execution flow that branches according to the distinct returns of the *strcmp* function.
+
+![Diff Visualization](FIGS/diff1.png)
+
+If one follows the flow a little bit, he/she notices that the right path has an additional comparison.
+
+![Diff Visualization](FIGS/diff2.png)
+
+In fact, both paths might present distinct function invocations after a function call return diverged.
+
+![Diff Visualization](FIGS/diff3.png)
