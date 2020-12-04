@@ -24,6 +24,24 @@ When patched with MalVerse-generated code, it invokes the function in the malici
 
 ![GetPid Logic Bomb](FIGS/getpid5.png)
 
+## Ptrace
+
+In this example, the application checks if a debugger is already attached via the *ptrace* call. In this case, the code is only displayed if a debugger is attached. It might correspond, for instance, to an evasive function.
+
+![Ptrace Logic Bomb](FIGS/ptrace1.png)
+
+If we decompile the *ptrace* function using *angr*, we only get a jump to an external address.
+
+![Ptrace Logic Bomb](FIGS/ptrace2.png)
+
+However, by using MalVerse, we can create a patch that returns the exact value expected by the application, without calling the original function.
+
+![Ptrace Logic Bomb](FIGS/ptrace3.png)
+
+Thus, even executing the application without a debugger, it reaches the targeted path.
+
+![Ptrace Logic Bomb](FIGS/ptrace4.png)
+
 ## DebugMeNot
 
 This is a very famous anti-debug trick. Check it [here](https://github.com/kirschju/debugmenot). MalVerse suggests that for its successful operation we should patch two functions:
