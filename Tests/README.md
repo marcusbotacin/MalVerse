@@ -2,6 +2,17 @@
 
 MalVerse application to Logic Bombs. Just type *make* for a test case and watch!
 
+## DebugMeNot
+
+This is a very famous anti-debug trick. Check it [here](https://github.com/kirschju/debugmenot). MalVerse suggests that for its successful operation we should patch two functions:
+
+![DebugMeNot Logic Bomb](FIGS/debugmenot1.png)
+
+When we trace the original binary, it detects the hook and fails. However, when we execute the patched version, it successfully passes the check.
+
+![DebugMeNot Logic Bomb](FIGS/debugmenot2.png)
+
+
 ## Clock
 
 In this example, the application has a stalling code technique to wait some time before its execution. It aims to cause a timeout in sandbox executions. However, in addition to a logic bomb that is fired only after some time, the application protects itself from subversion from an application that does not wait such amount of time by checking the number of clock ticks spent by the function call.
