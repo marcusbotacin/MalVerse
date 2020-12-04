@@ -2,6 +2,28 @@
 
 MalVerse application to Logic Bombs. Just type *make* for a test case and watch!
 
+## GetPid
+
+The application in the following example only triggers a malicious path if a given *PID* is returned.
+
+![GetPid Logic Bomb](FIGS/getpid1.png)
+
+If we decompile the *getpid* function with *angr*, it only generates a jump to an external address (the function implementation), since the *getpid* symbol only refers to a jump table location.
+
+![GetPid Logic Bomb](FIGS/getpid2.png)
+
+However, in this example, we are not interested in the actual *getpid* implementation, but only in the value that it should return in this specific context, thus MalVerse must ignore the jump and considers the concrete value.
+
+![GetPid Logic Bomb](FIGS/getpid3.png)
+
+When we run the application, we notice that the expected *PID* is not returned by chance in most cases, thus the malicious path is not reached.
+
+![GetPid Logic Bomb](FIGS/getpid4.png)
+
+When patched with MalVerse-generated code, it invokes the function in the malicious path.
+
+![GetPid Logic Bomb](FIGS/getpid5.png)
+
 ## DebugMeNot
 
 This is a very famous anti-debug trick. Check it [here](https://github.com/kirschju/debugmenot). MalVerse suggests that for its successful operation we should patch two functions:
