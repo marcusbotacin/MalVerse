@@ -24,6 +24,20 @@ When patched with MalVerse-generated code, it invokes the function in the malici
 
 ![GetPid Logic Bomb](FIGS/getpid5.png)
 
+## Time
+
+Similarly, in this example, the application is only triggered in an specific time.
+
+![Time Logic Bomb](FIGS/time1.png)
+
+We can generate a patch to always trigger it by using MalVerse.
+
+![Time Logic Bomb](FIGS/time2.png)
+
+The difference in the execution with and without the patch is following illustrated.
+
+![Time Logic Bomb](FIGS/time3.png)
+
 ## Ptrace
 
 In this example, the application checks if a debugger is already attached via the *ptrace* call. In this case, the code is only displayed if a debugger is attached. It might correspond, for instance, to an evasive function.
