@@ -8,6 +8,7 @@ MalVerse is developed by Marcus Botacin, under supervision of André Grégio, as
 # Directory Organization
 
 * *Helpers*: Helper functions to generate traceable libraries.
+* *Plugins*: Plugin to user MalVerse on Ghidra.
 * *Tests*: Simple logic bombs to exercise our solution.
 
 # Installation
