@@ -3,7 +3,7 @@
 MalVerse proposes the use of Dynamic Symbolic Execution (DSE) to identify logic bombs in (mostly malicious) applications and automatically generates a patch library to be injected in the target application to allow it to be analyzed in typical sandbox solutions while triggering the logic bombing conditions.
 
 # Author
-MalVerse is developed by Marcus Botacin, under supervision of André Grégio, as a Proof of Concept (PoC) of an academic idea to be published in a paper.
+MalVerse is developed by Marcus Botacin, under supervision of André Grégio, as a Proof of Concept (PoC) of an academic idea to be published in a paper. [Preprint HERE](https://arxiv.org/abs/2109.06127)
 
 # Directory Organization
 
